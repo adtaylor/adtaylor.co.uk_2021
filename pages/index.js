@@ -1,6 +1,23 @@
+import { AmplifyAuthenticator } from '@aws-amplify/ui-react'
+import { Amplify, API, Auth, withSSRContext } from 'aws-amplify'
+import awsExports from '../src/aws-exports'
+import { listPosts } from '../src/graphql/queries'
 import Head from 'next/head'
 import Image from 'next/image'
 import { Container, TextLink, extLink } from '../shared/styles'
+
+Amplify.configure({ ...awsExports, ssr: true })
+
+export async function getServerSideProps({ req }) {
+  const SSR = withSSRContext({ req })
+  const response = await SSR.API.graphql({ query: listPosts })
+
+  return {
+    props: {
+      posts: response.data.listPosts.items,
+    },
+  }
+}
 
 export default function Home() {
   return (
