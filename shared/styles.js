@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 export const darkColour = '#312F44'
 export const lightColour = '#FFFFFF'
+const xsmlBP = '400px'
 const smlBP = '600px'
 
 export const darkBlockStyles = css`
@@ -63,9 +64,13 @@ export const Logo = styled.header`
     height: 15rem;
     text-transform: uppercase;
     font-weight: 900;
-    font-size: 4rem;
+    font-size: 3rem;
     line-height: 0.9;
     letter-spacing: 1rem;
+
+    @media (min-width: ${xsmlBP}) {
+      font-size: 4rem;
+    }
 
     @media (min-width: ${smlBP}) {
       width: 23rem;
