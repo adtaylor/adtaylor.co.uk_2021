@@ -10,11 +10,11 @@ function MyApp({ Component, pageProps }) {
         <meta name="theme-color" content={darkColour} />
         <link rel="icon" href="/favicon.ico" />
         <link
-          href="https://fonts.googleapis.com/css?family=Domine:regular,bold"
+          href="https://fonts.googleapis.com/css?family=Domine:regular,bold&display=swap"
           rel="stylesheet"
         />
         <link
-          href="https://fonts.googleapis.com/css?family=Montserrat:bold,black"
+          href="https://fonts.googleapis.com/css?family=Montserrat:bold,black&display=swap"
           rel="stylesheet"
         />
       </Head>
