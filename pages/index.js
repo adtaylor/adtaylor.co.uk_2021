@@ -32,7 +32,7 @@ export default function Home() {
         <p>{"I'm a Head of Developement, former JS lead and hobby collector."}</p>
         <p>{"I've build this little site to house future projects and playgrounds."}</p>
 
-        <p><TextLink css={extLink} href="" title="A link to Ad Taylors LinkedIn profile">LinkedIn</TextLink></p>
+        <p><TextLink css={extLink} href="https://www.linkedin.com/in/adam-taylor-0a2ab45b" title="A link to Ad Taylors LinkedIn profile">LinkedIn</TextLink></p>
         <p><TextLink css={extLink} href="https://github.com/adtaylor" title="A link to Ad Taylors Github profile">Github</TextLink></p>
       </Container>
     </>
