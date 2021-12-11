@@ -10,6 +10,11 @@
       "StackName": "amplify-adtaylorcouk-dev-214407",
       "StackId": "arn:aws:cloudformation:eu-west-2:537401967132:stack/amplify-adtaylorcouk-dev-214407/2549e350-5939-11ec-85c5-06d264456650",
       "AmplifyAppId": "d37p1i5vksahfm"
+    },
+    "categories": {
+      "auth": {
+        "adtaylorcoukcc6e0c53": {}
+      }
     }
   }
 }
