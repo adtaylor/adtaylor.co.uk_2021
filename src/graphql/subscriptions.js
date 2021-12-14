@@ -121,3 +121,75 @@ export const onDeletePost = /* GraphQL */ `
     }
   }
 `;
+export const onCreateMixtape = /* GraphQL */ `
+  subscription OnCreateMixtape {
+    onCreateMixtape {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateMixtape = /* GraphQL */ `
+  subscription OnUpdateMixtape {
+    onUpdateMixtape {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteMixtape = /* GraphQL */ `
+  subscription OnDeleteMixtape {
+    onDeleteMixtape {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;

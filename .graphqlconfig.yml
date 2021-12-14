@@ -1,6 +1,6 @@
 projects:
   adtaylorcouk:
-    schemaPath: src/graphql/schema.json
+    schemaPath: amplify/backend/api/adtaylorcouk/build/schema.graphql
     includes:
       - src/graphql/**/*.js
     excludes:

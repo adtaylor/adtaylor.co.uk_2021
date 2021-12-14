@@ -139,3 +139,84 @@ export const deletePost = /* GraphQL */ `
     }
   }
 `;
+export const createMixtape = /* GraphQL */ `
+  mutation CreateMixtape(
+    $input: CreateMixtapeInput!
+    $condition: ModelMixtapeConditionInput
+  ) {
+    createMixtape(input: $input, condition: $condition) {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const updateMixtape = /* GraphQL */ `
+  mutation UpdateMixtape(
+    $input: UpdateMixtapeInput!
+    $condition: ModelMixtapeConditionInput
+  ) {
+    updateMixtape(input: $input, condition: $condition) {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const deleteMixtape = /* GraphQL */ `
+  mutation DeleteMixtape(
+    $input: DeleteMixtapeInput!
+    $condition: ModelMixtapeConditionInput
+  ) {
+    deleteMixtape(input: $input, condition: $condition) {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;

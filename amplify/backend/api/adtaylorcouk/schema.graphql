@@ -13,3 +13,28 @@ type Post @model {
   title: String!
   blog: Blog @belongsTo
 }
+
+type Mixtape @model {
+  id: ID!,
+  spotify_id: String!
+  playlist: Playlist @function(name: "spotifyPlaylistFetch")
+}
+
+type Playlist {
+  name: String!
+  description: String!
+  images: [PlaylistImage]
+  tracks: [PlaylistTrack]
+}
+
+type PlaylistImage {
+  url: String!
+}
+
+type PlaylistTrack {
+    name: String!,
+    preview_url: String!,
+    duration_ms: Int!,
+    url: String!
+    artist: String!
+}

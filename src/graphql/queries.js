@@ -85,3 +85,48 @@ export const listPosts = /* GraphQL */ `
     }
   }
 `;
+export const getMixtape = /* GraphQL */ `
+  query GetMixtape($id: ID!) {
+    getMixtape(id: $id) {
+      id
+      spotify_id
+      playlist {
+        name
+        description
+        images {
+          url
+        }
+        tracks {
+          name
+          preview_url
+          duration_ms
+          url
+          artist
+        }
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listMixtapes = /* GraphQL */ `
+  query ListMixtapes(
+    $filter: ModelMixtapeFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMixtapes(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        spotify_id
+        playlist {
+          name
+          description
+        }
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
