@@ -17,6 +17,12 @@
           "appId": "dfjcqxmu99viu",
           "type": "cicd"
         }
+      },
+      "function": {
+        "spotifyPlaylistFetch": {
+          "deploymentBucketName": "amplify-adtaylorcouk-production-155411-deployment",
+          "s3Key": "amplify-builds/spotifyPlaylistFetch-46756233795254686654-build.zip"
+        }
       }
     }
   }
