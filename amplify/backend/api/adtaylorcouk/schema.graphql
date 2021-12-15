@@ -17,7 +17,7 @@ type Post @model {
 type Mixtape @model {
   id: ID!,
   spotify_id: String!
-  playlist: Playlist @function(name: "spotifyPlaylistFetch")
+  playlist: Playlist @function(name: "spotifyPlaylistFetch-${env}")
 }
 
 type Playlist {

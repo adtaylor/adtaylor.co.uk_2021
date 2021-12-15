@@ -13,6 +13,9 @@ export async function getStaticPaths() {
     params: { id: mixtape.id },
   }))
 
+  console.log('staticPaths')
+  console.log(data, paths)
+
   return {
     fallback: true,
     paths,
@@ -20,14 +23,17 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
+  console.log('staticProps', params)
+
   const SSR = withSSRContext()
   const { data } = await SSR.API.graphql({
     query: getMixtape,
     variables: {
-      id: params.id,
+      id: params.id
     },
   })
 
+  console.log(data)
   return {
     props: {
       mixtape: data.getMixtape,
@@ -35,7 +41,7 @@ export async function getStaticProps({ params }) {
   }
 }
 
-export default function Mixtape({ mixtape }) {
+export default function MixtapeComponent({ mixtape }) {
   const router = useRouter()
 
   if (router.isFallback) {
@@ -47,16 +53,8 @@ export default function Mixtape({ mixtape }) {
   }
 
   return (
-    <div>
-      <Head>
-        <title>{mixtape.title} – Amplify + Next.js</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main>
-        <h1>Spotify: {mixtape.spotify_id}</h1>
-
-      </main>
-    </div>
+    <main>
+      <h1>Spotify: {mixtape.spotify_id}</h1>
+    </main>
   )
 }
