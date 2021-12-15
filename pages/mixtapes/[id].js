@@ -46,7 +46,7 @@ export async function getStaticProps({ params }) {
 
 function renderTracks(tracks) { 
   return tracks.map((track) =>
-    <li>
+    <li key={track.name}>
       <TextLink css={extLink} href={track.url} title={`A link to spotify song {track.name} - {track.artist}`}>{track.name} - {track.artist}</TextLink>
     </li>
   );
