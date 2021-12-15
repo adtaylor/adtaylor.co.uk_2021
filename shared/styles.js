@@ -3,6 +3,7 @@ import styled from '@emotion/styled'
 
 export const darkColour = '#312F44'
 export const lightColour = '#FFFFFF'
+export const accentColour = '#bf4d40'
 const xsmlBP = '400px'
 const smlBP = '600px'
 
@@ -36,10 +37,14 @@ export const globalStyles = (
         font-weight: 800;
         line-height: normal;
       }
+
+      ul, ol {
+        margin-left: 0;
+        padding-left: 0;
+      }
     `}
   />
 )
-
 
 export const Logo = styled.header`
 
@@ -55,6 +60,7 @@ export const Logo = styled.header`
 
   & h1 {
     ${lightBlockStyles}
+    color: ${props => props.img ? lightColour : darkColour };
     z-index: 1;
     position: relative;
     display: flex;
@@ -68,6 +74,9 @@ export const Logo = styled.header`
     line-height: 0.9;
     letter-spacing: 1rem;
 
+    background-image: ${props => props.img ? `url(${props.img})` : 'none'};
+    background-size: cover;
+
     @media (min-width: ${xsmlBP}) {
       font-size: 4rem;
     }
@@ -79,10 +88,22 @@ export const Logo = styled.header`
 `
 
 export const Container = styled.main`
-  margin: 2rem;
+  display: flex;
+  flex-wrap: wrap;
 
   @media (min-width: ${smlBP}) {
-    max-width: 23rem;
+  }
+`
+
+export const Column = styled.div`
+  flex: 1 1 100%;
+  padding: 0 2rem;
+  box-sizing: border-box;
+  
+
+  @media (min-width: ${smlBP}) {
+    max-width:  ${props => props.full ? '100%' : '26rem'};
+    flex: 1 1 ${props => props.full ? '100%' : '45%'};
   }
 `
 
@@ -93,6 +114,10 @@ const underlineVars = {
   colorHover: 'hsla(6, 50%, 50%, 1)',
   transition: '0.5s'
 }
+
+export const spotifyPlayerStyles = css`
+  margin: 2rem 0
+`
 
 export const extLink = css`
  &:after {
@@ -123,7 +148,12 @@ export const TextLink = styled.a`
       ${underlineVars.colorHover}
     );
     background-position-x: calc(100% + ${underlineVars.blockWidth}), 0;
-  }
+  } 
+`
 
-  
+export const TitleAccent = styled.span`
+  color: ${accentColour};
+  font-family: "Domine", "Big Caslon", "Book Antiqua", "Palatino Linotype", Georgia, serif;
+  display: block;
+
 `

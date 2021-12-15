@@ -4,6 +4,9 @@ import { useRouter } from 'next/router'
 import awsExports from '../../src/aws-exports'
 import { getMixtape, listMixtapes } from '../../src/graphql/queries'
 
+import { Logo, Container, Column, TextLink, TitleAccent, extLink, spotifyPlayerStyles } from '../../shared/styles'
+
+
 Amplify.configure({ ...awsExports, ssr: true })
 
 export async function getStaticPaths() {
@@ -41,6 +44,15 @@ export async function getStaticProps({ params }) {
   }
 }
 
+function renderTracks(tracks) { 
+  return tracks.map((track) =>
+    <li>
+      <TextLink css={extLink} href={track.url} title={`A link to spotify song {track.name} - {track.artist}`}>{track.name} - {track.artist}</TextLink>
+    </li>
+  );
+}
+
+
 export default function MixtapeComponent({ mixtape }) {
   const router = useRouter()
 
@@ -52,9 +64,32 @@ export default function MixtapeComponent({ mixtape }) {
     )
   }
 
+  const {name, description, images, tracks} = mixtape.playlist
+  console.log( images[0].url )
   return (
-    <main>
-      <h1>Spotify: {mixtape.spotify_id}</h1>
-    </main>
+      <>
+        <Logo img={images[0].url}>
+          <h1>Ad Taylor</h1>
+        </Logo>
+        <Container>
+          <Column full>
+            <h2><TitleAccent>Mixtape:</TitleAccent> {name}</h2>
+          </Column>
+          <Column>
+          
+          <p>{description}</p>
+
+          <iframe src={`https://open.spotify.com/embed/playlist/${mixtape.spotify_id}`}
+              width="100%" height="380" frameBorder="0" allowfullscreen="" css={spotifyPlayerStyles}
+              allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
+          </Column>
+          <Column>
+            <h3><TitleAccent>Tracks</TitleAccent></h3>
+            <ul>
+              {renderTracks(tracks)}
+            </ul>
+          </Column>
+        </Container>
+     </>
   )
 }

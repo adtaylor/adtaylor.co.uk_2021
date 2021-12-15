@@ -20,9 +20,6 @@ function MyApp({ Component, pageProps }) {
       </Head>
 
       {globalStyles}
-      <Logo>
-        <h1>Ad Taylor</h1>
-      </Logo>
       <Component {...pageProps} />
     </>
   )
