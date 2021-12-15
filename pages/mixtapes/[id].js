@@ -80,7 +80,7 @@ export default function MixtapeComponent({ mixtape }) {
           <p>{description}</p>
 
           <iframe src={`https://open.spotify.com/embed/playlist/${mixtape.spotify_id}`}
-              width="100%" height="380" frameBorder="0" allowfullscreen="" css={spotifyPlayerStyles}
+              width="100%" height="380" frameBorder="0" allowFullScreen css={spotifyPlayerStyles}
               allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"></iframe>
           </Column>
           <Column>
