@@ -98,7 +98,6 @@ export const getMixtape = /* GraphQL */ `
         }
         tracks {
           name
-          preview_url
           duration_ms
           url
           artist

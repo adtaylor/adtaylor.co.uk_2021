@@ -33,7 +33,6 @@ type PlaylistImage {
 
 type PlaylistTrack {
     name: String!,
-    preview_url: String!,
     duration_ms: Int!,
     url: String!
     artist: String!

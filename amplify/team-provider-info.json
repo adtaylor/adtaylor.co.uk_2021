@@ -21,7 +21,7 @@
       "function": {
         "spotifyPlaylistFetch": {
           "deploymentBucketName": "amplify-adtaylorcouk-production-155411-deployment",
-          "s3Key": "amplify-builds/spotifyPlaylistFetch-656565553075662f6172-build.zip"
+          "s3Key": "amplify-builds/spotifyPlaylistFetch-704c676d343139504d68-build.zip"
         }
       }
     }

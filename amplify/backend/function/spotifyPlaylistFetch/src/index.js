@@ -10,10 +10,10 @@ Amplify Params - DO NOT EDIT */
 const axios = require('axios');
 
 function parseTracks(track) {
-  const {name, preview_url, duration_ms, artists, external_urls} = track.track
+  const {name, duration_ms, artists, external_urls} = track.track
 
   return {
-    name, preview_url, duration_ms,
+    name, duration_ms,
     url: external_urls.spotify,
     artist: artists[0].name
   }

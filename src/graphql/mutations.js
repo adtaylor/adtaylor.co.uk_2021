@@ -155,7 +155,6 @@ export const createMixtape = /* GraphQL */ `
         }
         tracks {
           name
-          preview_url
           duration_ms
           url
           artist
@@ -182,7 +181,6 @@ export const updateMixtape = /* GraphQL */ `
         }
         tracks {
           name
-          preview_url
           duration_ms
           url
           artist
@@ -209,7 +207,6 @@ export const deleteMixtape = /* GraphQL */ `
         }
         tracks {
           name
-          preview_url
           duration_ms
           url
           artist
