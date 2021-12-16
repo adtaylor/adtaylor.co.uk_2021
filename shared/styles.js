@@ -102,7 +102,7 @@ export const Column = styled.div`
   
 
   @media (min-width: ${smlBP}) {
-    max-width:  ${props => props.full ? '100%' : '55rem'};
+    max-width:  ${props => props.full ? '100%' : '38rem'};
     flex: 1 1 ${props => props.full ? '100%' : '45%'};
   }
 `
