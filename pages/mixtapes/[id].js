@@ -64,11 +64,10 @@ export default function MixtapeComponent({ mixtape }) {
     )
   }
 
-  const {name, description, images, tracks} = mixtape.playlist
-  console.log( images[0].url )
+  const {name, description, image, tracks} = mixtape.playlist
   return (
       <>
-        <Logo img={images[0].url}>
+        <Logo img={image}>
           <h1>Ad Taylor</h1>
         </Logo>
         <Container>
