@@ -23,12 +23,8 @@ type Mixtape @model {
 type Playlist {
   name: String!
   description: String!
-  images: [PlaylistImage]
+  image: String!
   tracks: [PlaylistTrack]
-}
-
-type PlaylistImage {
-  url: String!
 }
 
 type PlaylistTrack {

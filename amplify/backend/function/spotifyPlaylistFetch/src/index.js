@@ -7,30 +7,20 @@
 	ENV
 	REGION
 Amplify Params - DO NOT EDIT */
-const axios = require('axios');
 
-function parseTracks(track) {
-  const {name, duration_ms, artists, external_urls} = track.track
-
-  return {
-    name, duration_ms,
-    url: external_urls.spotify,
-    artist: artists[0].name
-  }
-}
-
-function parseSpotifyResponse(data) {
-  let {name, description, images, tracks} = data
-  tracks = tracks.items.map(parseTracks)
-  return { name, description, images, tracks }
-}
+const {getSpotifyPlaylistData, getSpotifyTrackData} = require('./scraper.js');
 
 async function fetchSpotifyData(playlistId) {
-  const regex = /(?<=Spotify\.Entity = )(.*)(?=;)/gm
   const url = `https://open.spotify.com/playlist/${playlistId}`
-  const response = await axios.get(url)
-  const data = JSON.parse(response.data.match(regex))
-  return parseSpotifyResponse(data)
+  data = await getSpotifyPlaylistData(url)
+
+  data.tracks = await Promise.all(
+    data.tracks.map(async (url) => {
+      return await getSpotifyTrackData(url)
+    })
+  );
+  // data.tracks = results
+  return data
 }
 
 exports.handler = async (event) => {

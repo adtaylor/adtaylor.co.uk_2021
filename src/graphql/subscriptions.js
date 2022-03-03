@@ -129,9 +129,7 @@ export const onCreateMixtape = /* GraphQL */ `
       playlist {
         name
         description
-        images {
-          url
-        }
+        image
         tracks {
           name
           duration_ms
@@ -152,9 +150,7 @@ export const onUpdateMixtape = /* GraphQL */ `
       playlist {
         name
         description
-        images {
-          url
-        }
+        image
         tracks {
           name
           duration_ms
@@ -175,9 +171,7 @@ export const onDeleteMixtape = /* GraphQL */ `
       playlist {
         name
         description
-        images {
-          url
-        }
+        image
         tracks {
           name
           duration_ms
