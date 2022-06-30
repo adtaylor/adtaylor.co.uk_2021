@@ -8,7 +8,9 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 7
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-03-03T14:49:55.604Z",
+              "description": "March2022adtaylor.co.uk"
             }
           },
           "additionalAuthenticationProviders": []
