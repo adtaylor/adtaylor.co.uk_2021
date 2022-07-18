@@ -1,29 +1,15 @@
 {
-  "production": {
+  "dev": {
     "awscloudformation": {
-      "AuthRoleName": "amplify-adtaylorcouk-production-155411-authRole",
-      "UnauthRoleArn": "arn:aws:iam::537401967132:role/amplify-adtaylorcouk-production-155411-unauthRole",
-      "AuthRoleArn": "arn:aws:iam::537401967132:role/amplify-adtaylorcouk-production-155411-authRole",
+      "AuthRoleName": "amplify-adtaylorcouk-dev-204910-authRole",
+      "UnauthRoleArn": "arn:aws:iam::537401967132:role/amplify-adtaylorcouk-dev-204910-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::537401967132:role/amplify-adtaylorcouk-dev-204910-authRole",
       "Region": "eu-west-2",
-      "DeploymentBucketName": "amplify-adtaylorcouk-production-155411-deployment",
-      "UnauthRoleName": "amplify-adtaylorcouk-production-155411-unauthRole",
-      "StackName": "amplify-adtaylorcouk-production-155411",
-      "StackId": "arn:aws:cloudformation:eu-west-2:537401967132:stack/amplify-adtaylorcouk-production-155411/16981aa0-5cf6-11ec-b084-0a547e4af876",
-      "AmplifyAppId": "dfjcqxmu99viu"
-    },
-    "categories": {
-      "hosting": {
-        "amplifyhosting": {
-          "appId": "dfjcqxmu99viu",
-          "type": "cicd"
-        }
-      },
-      "function": {
-        "spotifyPlaylistFetch": {
-          "deploymentBucketName": "amplify-adtaylorcouk-production-155411-deployment",
-          "s3Key": "amplify-builds/spotifyPlaylistFetch-7761374b41703257464a-build.zip"
-        }
-      }
+      "DeploymentBucketName": "amplify-adtaylorcouk-dev-204910-deployment",
+      "UnauthRoleName": "amplify-adtaylorcouk-dev-204910-unauthRole",
+      "StackName": "amplify-adtaylorcouk-dev-204910",
+      "StackId": "arn:aws:cloudformation:eu-west-2:537401967132:stack/amplify-adtaylorcouk-dev-204910/b2125c80-06d2-11ed-95e0-0614439d3a48",
+      "AmplifyAppId": "d6bxrms4jw1xf"
     }
   }
 }

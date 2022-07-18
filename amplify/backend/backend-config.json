@@ -3,44 +3,20 @@
     "adtaylorcouk": {
       "service": "AppSync",
       "providerPlugin": "awscloudformation",
+      "dependsOn": [],
       "output": {
         "authConfig": {
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 365,
-              "apiKeyExpirationDate": "2023-03-03T14:49:55.604Z",
-              "description": "March2022adtaylor.co.uk"
+              "apiKeyExpirationDays": 0,
+              "apiKeyExpirationDate": "2022-07-18T19:53:08.873Z",
+              "description": "adtaylorcouk"
             }
           },
           "additionalAuthenticationProviders": []
         }
       }
-    }
-  },
-  "hosting": {
-    "amplifyhosting": {
-      "service": "amplifyhosting",
-      "type": "cicd",
-      "lastPushTimeStamp": "2021-12-14T16:11:39.586Z"
-    }
-  },
-  "function": {
-    "spotifyPlaylistFetch": {
-      "build": true,
-      "providerPlugin": "awscloudformation",
-      "service": "Lambda",
-      "dependsOn": [
-        {
-          "category": "api",
-          "resourceName": "adtaylorcouk",
-          "attributes": [
-            "GraphQLAPIIdOutput",
-            "GraphQLAPIEndpointOutput",
-            "GraphQLAPIKeyOutput"
-          ]
-        }
-      ]
     }
   }
 }

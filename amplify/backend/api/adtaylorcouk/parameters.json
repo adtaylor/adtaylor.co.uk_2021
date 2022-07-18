@@ -1,6 +1,5 @@
 {
   "AppSyncApiName": "adtaylorcouk",
   "DynamoDBBillingMode": "PAY_PER_REQUEST",
-  "DynamoDBEnableServerSideEncryption": false,
-  "AuthModeLastUpdated": "2022-03-03T14:50:01.722Z"
+  "DynamoDBEnableServerSideEncryption": false
 }
