@@ -1,6 +1,29 @@
 /* eslint-disable */
 // this is an auto generated file. This will be overwritten
 
+export const getPostBySlug = /* GraphQL */ `
+  query GetPostBySlug($slug: String!) {
+    getPostBySlug(slug: $slug) {
+      id
+      slug
+      title
+      content
+      status
+      createdAt
+      blog {
+        id
+        name
+        posts {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      updatedAt
+      blogPostsId
+    }
+  }
+`;
 export const getBlog = /* GraphQL */ `
   query GetBlog($id: ID!) {
     getBlog(id: $id) {
@@ -9,7 +32,10 @@ export const getBlog = /* GraphQL */ `
       posts {
         items {
           id
+          slug
           title
+          content
+          status
           createdAt
           updatedAt
           blogPostsId
@@ -45,7 +71,11 @@ export const getPost = /* GraphQL */ `
   query GetPost($id: ID!) {
     getPost(id: $id) {
       id
+      slug
       title
+      content
+      status
+      createdAt
       blog {
         id
         name
@@ -55,7 +85,6 @@ export const getPost = /* GraphQL */ `
         createdAt
         updatedAt
       }
-      createdAt
       updatedAt
       blogPostsId
     }
@@ -63,21 +92,32 @@ export const getPost = /* GraphQL */ `
 `;
 export const listPosts = /* GraphQL */ `
   query ListPosts(
+    $id: ID
     $filter: ModelPostFilterInput
     $limit: Int
     $nextToken: String
+    $sortDirection: ModelSortDirection
   ) {
-    listPosts(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    listPosts(
+      id: $id
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+      sortDirection: $sortDirection
+    ) {
       items {
         id
+        slug
         title
+        content
+        status
+        createdAt
         blog {
           id
           name
           createdAt
           updatedAt
         }
-        createdAt
         updatedAt
         blogPostsId
       }
@@ -123,6 +163,78 @@ export const listMixtapes = /* GraphQL */ `
         }
         createdAt
         updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const postBySlug = /* GraphQL */ `
+  query PostBySlug(
+    $slug: String!
+    $sortDirection: ModelSortDirection
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    postBySlug(
+      slug: $slug
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        slug
+        title
+        content
+        status
+        createdAt
+        blog {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        updatedAt
+        blogPostsId
+      }
+      nextToken
+    }
+  }
+`;
+export const postsByStatus = /* GraphQL */ `
+  query PostsByStatus(
+    $status: Status!
+    $createdAt: ModelStringKeyConditionInput
+    $sortDirection: ModelSortDirection
+    $filter: ModelPostFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    postsByStatus(
+      status: $status
+      createdAt: $createdAt
+      sortDirection: $sortDirection
+      filter: $filter
+      limit: $limit
+      nextToken: $nextToken
+    ) {
+      items {
+        id
+        slug
+        title
+        content
+        status
+        createdAt
+        blog {
+          id
+          name
+          createdAt
+          updatedAt
+        }
+        updatedAt
+        blogPostsId
       }
       nextToken
     }

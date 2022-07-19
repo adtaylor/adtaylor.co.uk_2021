@@ -2,6 +2,10 @@
 # all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
 input AMPLIFY { globalAuthRule: AuthRule = { allow: public } } # FOR TESTING ONLY!
 
+type Query {
+    getPostBySlug(slug: String!): Post
+}
+
 type Blog @model {
   id: ID!
   name: String!
@@ -9,9 +13,18 @@ type Blog @model {
 }
 
 type Post @model {
-  id: ID!
+  id: ID! @primaryKey
+  slug: String!  @index(name: "BySlug", queryField: "postBySlug")
   title: String!
+  content: String!
+  status: Status! @index(name: "ByStatus", sortKeyFields: ["createdAt"], queryField: "postsByStatus")
+  createdAt: AWSDateTime!
   blog: Blog @belongsTo
+}
+
+enum Status {
+  DRAFT,
+  LIVE
 }
 
 type Mixtape @model {

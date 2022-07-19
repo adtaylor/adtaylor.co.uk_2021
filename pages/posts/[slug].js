@@ -2,15 +2,15 @@ import { Amplify, API, withSSRContext } from 'aws-amplify'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import awsExports from '../../src/aws-exports'
-import { getPost, listPosts } from '../../src/graphql/queries'
+import { postsByStatus, postBySlug } from '../../src/graphql/queries'
 
 Amplify.configure({ ...awsExports, ssr: true })
 
 export async function getStaticPaths() {
   const SSR = withSSRContext()
-  const { data } = await SSR.API.graphql({ query: listPosts })
+  const { data } = await SSR.API.graphql({ query: postsByStatus })
   const paths = data.listPosts.items.map((post) => ({
-    params: { id: post.id },
+    params: { status: "LIVE" },
   }))
 
   return {
@@ -22,15 +22,15 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const SSR = withSSRContext()
   const { data } = await SSR.API.graphql({
-    query: getPost,
+    query: postBySlug,
     variables: {
-      id: params.id,
+      slug: params.id,
     },
   })
 
   return {
     props: {
-      post: data.getPost,
+      post: data.postBySlug.items[0],
     },
   }
 }
