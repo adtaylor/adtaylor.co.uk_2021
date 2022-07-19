@@ -8,9 +8,15 @@ Amplify.configure({ ...awsExports, ssr: true })
 
 export async function getStaticPaths() {
   const SSR = withSSRContext()
-  const { data } = await SSR.API.graphql({ query: postsByStatus })
-  const paths = data.listPosts.items.map((post) => ({
-    params: { status: "LIVE" },
+  const { data } = await SSR.API.graphql({
+    query: postsByStatus,
+    variables: {
+      status: "LIVE",
+    },
+
+  })
+  const paths = data.postsByStatus.items.map((item) => ({
+    params: { slug: item.slug }
   }))
 
   return {
@@ -24,7 +30,7 @@ export async function getStaticProps({ params }) {
   const { data } = await SSR.API.graphql({
     query: postBySlug,
     variables: {
-      slug: params.id,
+      slug: params.slug,
     },
   })
 

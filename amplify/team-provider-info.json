@@ -10,6 +10,14 @@
       "StackName": "amplify-adtaylorcouk-dev-204910",
       "StackId": "arn:aws:cloudformation:eu-west-2:537401967132:stack/amplify-adtaylorcouk-dev-204910/b2125c80-06d2-11ed-95e0-0614439d3a48",
       "AmplifyAppId": "d6bxrms4jw1xf"
+    },
+    "categories": {
+      "function": {
+        "spotifyMixes": {
+          "deploymentBucketName": "amplify-adtaylorcouk-dev-204910-deployment",
+          "s3Key": "amplify-builds/spotifyMixes-686947496457757a2b48-build.zip"
+        }
+      }
     }
   }
 }

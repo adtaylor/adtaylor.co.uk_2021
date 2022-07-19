@@ -30,7 +30,7 @@ enum Status {
 type Mixtape @model {
   id: ID!,
   spotify_id: String!
-  playlist: Playlist @function(name: "spotifyPlaylistFetch-${env}")
+  playlist: Playlist @function(name: "spotifyMixes-${env}")
 }
 
 type Playlist {

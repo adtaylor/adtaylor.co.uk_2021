@@ -18,5 +18,12 @@
         }
       }
     }
+  },
+  "function": {
+    "spotifyMixes": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
   }
 }
