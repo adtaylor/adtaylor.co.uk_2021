@@ -3,7 +3,6 @@ import { Amplify, API, Auth, withSSRContext } from 'aws-amplify'
 import awsExports from '../src/aws-exports'
 import { listMixtapes } from '../src/graphql/queries'
 import Head from 'next/head'
-import Image from 'next/image'
 import { Logo, Container, Column, TextLink, extLink } from '../shared/styles'
 
 Amplify.configure({ ...awsExports, ssr: true })
