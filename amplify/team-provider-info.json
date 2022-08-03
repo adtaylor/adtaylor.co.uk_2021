@@ -15,7 +15,7 @@
       "function": {
         "spotifyMixes": {
           "deploymentBucketName": "amplify-adtaylorcouk-dev-204910-deployment",
-          "s3Key": "amplify-builds/spotifyMixes-686947496457757a2b48-build.zip"
+          "s3Key": "amplify-builds/spotifyMixes-49314e5461762b516167-build.zip"
         }
       }
     }

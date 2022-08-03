@@ -9,8 +9,8 @@
           "defaultAuthentication": {
             "authenticationType": "API_KEY",
             "apiKeyConfig": {
-              "apiKeyExpirationDays": 0,
-              "apiKeyExpirationDate": "2022-07-18T19:53:08.873Z",
+              "apiKeyExpirationDays": 365,
+              "apiKeyExpirationDate": "2023-08-03T16:35:40.945Z",
               "description": "adtaylorcouk"
             }
           },
@@ -23,7 +23,18 @@
     "spotifyMixes": {
       "build": true,
       "providerPlugin": "awscloudformation",
-      "service": "Lambda"
+      "service": "Lambda",
+      "dependsOn": [
+        {
+          "category": "api",
+          "resourceName": "adtaylorcouk",
+          "attributes": [
+            "GraphQLAPIIdOutput",
+            "GraphQLAPIEndpointOutput",
+            "GraphQLAPIKeyOutput"
+          ]
+        }
+      ]
     }
   }
 }

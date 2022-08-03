@@ -15,6 +15,18 @@
     },
     "s3Key": {
       "Type": "String"
+    },
+    "apiadtaylorcoukGraphQLAPIIdOutput": {
+      "Type": "String",
+      "Default": "apiadtaylorcoukGraphQLAPIIdOutput"
+    },
+    "apiadtaylorcoukGraphQLAPIEndpointOutput": {
+      "Type": "String",
+      "Default": "apiadtaylorcoukGraphQLAPIEndpointOutput"
+    },
+    "apiadtaylorcoukGraphQLAPIKeyOutput": {
+      "Type": "String",
+      "Default": "apiadtaylorcoukGraphQLAPIKeyOutput"
     }
   },
   "Conditions": {
@@ -69,6 +81,15 @@
             },
             "REGION": {
               "Ref": "AWS::Region"
+            },
+            "API_ADTAYLORCOUK_GRAPHQLAPIIDOUTPUT": {
+              "Ref": "apiadtaylorcoukGraphQLAPIIdOutput"
+            },
+            "API_ADTAYLORCOUK_GRAPHQLAPIENDPOINTOUTPUT": {
+              "Ref": "apiadtaylorcoukGraphQLAPIEndpointOutput"
+            },
+            "API_ADTAYLORCOUK_GRAPHQLAPIKEYOUTPUT": {
+              "Ref": "apiadtaylorcoukGraphQLAPIKeyOutput"
             }
           }
         },
@@ -160,6 +181,93 @@
                   }
                 ]
               }
+            }
+          ]
+        }
+      }
+    },
+    "AmplifyResourcesPolicy": {
+      "DependsOn": [
+        "LambdaExecutionRole"
+      ],
+      "Type": "AWS::IAM::Policy",
+      "Properties": {
+        "PolicyName": "amplify-lambda-execution-policy",
+        "Roles": [
+          {
+            "Ref": "LambdaExecutionRole"
+          }
+        ],
+        "PolicyDocument": {
+          "Version": "2012-10-17",
+          "Statement": [
+            {
+              "Effect": "Allow",
+              "Action": [
+                "appsync:GraphQL"
+              ],
+              "Resource": [
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiadtaylorcoukGraphQLAPIIdOutput"
+                      },
+                      "/types/Query/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiadtaylorcoukGraphQLAPIIdOutput"
+                      },
+                      "/types/Mutation/*"
+                    ]
+                  ]
+                },
+                {
+                  "Fn::Join": [
+                    "",
+                    [
+                      "arn:aws:appsync:",
+                      {
+                        "Ref": "AWS::Region"
+                      },
+                      ":",
+                      {
+                        "Ref": "AWS::AccountId"
+                      },
+                      ":apis/",
+                      {
+                        "Ref": "apiadtaylorcoukGraphQLAPIIdOutput"
+                      },
+                      "/types/Subscription/*"
+                    ]
+                  ]
+                }
+              ]
             }
           ]
         }
